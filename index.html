@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客文章列表</title>
+    <style>
+        /* CSS变量，简化主题切换 */
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --article-bg: #fff;
+            --article-shadow: rgba(0, 0, 0, 0.1);
+            --link-color: #007BFF;
+            --link-hover: #0056b3;
+            --button-bg: #007BFF;
+            --button-hover: #0056b3;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --article-bg: #1e1e1e;
+            --article-shadow: rgba(255, 255, 255, 0.1);
+            --link-color: #90caf9;
+            --link-hover: #64b5f6;
+            --button-bg: #90caf9;
+            --button-hover: #64b5f6;
+        }
+
+        /* 全局样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article {
+            background-color: var(--article-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px var(--article-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article a {
+            text-decoration: none;
+            color: var(--link-color);
+            transition: color 0.2s ease;
+        }
+
+        .article a:hover {
+            color: var(--link-hover);
+        }
+
+        .article h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .article p {
+            margin: 0.5em 0;
+            line-height: 1.6;
+        }
+
+        .article .date {
+            font-size: 0.85em;
+            color: #888;
+        }
+
+        /* 切换按钮样式 */
+        .theme-toggle {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* 小屏幕优化 */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .article-list {
+                padding: 0;
+            }
+
+            .theme-toggle {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>技术博客文章列表</h1>
+    
+    <button class="theme-toggle" id="themeButton">切换到夜晚模式</button>
+
+    <div class="article-list">
+
+        <div class="article">
+            <h2><a href="2024/aieasy.html">最简单的离线AI方式</a></h2>
+            <p class="date">发布日期: 2024年9月</p>
+            <p>最友好的方式离线使用AI</p>
+        </div>
+
+        <div class="article">
+            <h2><a href="2024/ai.html">如何离线使用AI</a></h2>
+            <p class="date">发布日期: 2024年9月</p>
+            <p>简单的方式离线使用AI。</p>
+        </div>
+        
+    </div>
+
+    <script>
+        // 切换深夜模式
+        const themeButton = document.getElementById('themeButton');
+        themeButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            // 动态改变按钮文本
+            if(document.body.classList.contains('dark-mode')) {
+                themeButton.textContent = '切换到白天模式';
+            } else {
+                themeButton.textContent = '切换到夜晚模式';
+            }
+        });
+    </script>
+
+</body>
+</html>
