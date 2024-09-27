@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiddler的下载与配置</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 默认白天模式 */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* 黑夜模式样式 */
+    body.dark-mode {
+      background-color: #212529;
+      color: #f8f9fa;
+    }
+
+    /* 文章页面样式 */
+    .article-header {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+    .article-header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .article-meta {
+      color: gray;
+    }
+    .toc {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+    }
+    .toc h5 {
+      font-weight: bold;
+    }
+    .toc ul {
+      list-style: none;
+      padding: 0;
+    }
+    .toc ul li {
+      margin-bottom: 10px;
+    }
+    .toc ul li a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .toc ul li a:hover {
+      text-decoration: underline;
+    }
+    .article-content {
+      margin-top: 30px;
+    }
+    .article-content h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    blockquote {
+      padding: 10px;
+      margin: 20px 0;
+      background-color: #e9ecef;
+      border-left: 5px solid #007bff;
+    }
+    footer {
+      margin-top: 50px;
+    }
+
+    /* 切换按钮样式 */
+    .mode-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .mode-toggle-btn img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Eric's Tblog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="https://eq767.github.io">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="search.html">搜索</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://eq767.github.io/Star.html">关于我</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://eq767.github.io/Send">最新项目</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://eq767.github.io/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 模式切换按钮 -->
+  <button class="mode-toggle-btn" id="mode-toggle">
+    <img src="pic/sun.svg" alt="切换模式" id="mode-icon">
+  </button>
+
+  <!-- 文章标题 -->
+  <header class="article-header">
+    <h1>Fiddler的下载与配置</h1>
+    <p class="article-meta">作者: Eric | 发布于: 2024年9月27日</p>
+  </header>
+
+  <!-- 主要内容 -->
+  <div class="container">
+    <div class="row">
+      <!-- 目录 -->
+      <div class="col-md-3">
+        <div class="toc">
+          <h5>目录</h5>
+          <ul>
+            <li><a href="#down">1. 下载和安装 Fiddler</a></li>
+            <li><a href="#use">2. 配置与使用</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 文章内容 -->
+      <div class="col-md-9">
+        <div class="article-content">
+          <h2 id="down">1. 下载和安装 Fiddler</h2>
+          <p>要开始使用 Fiddler，首先需要下载 Fiddler。下载链接如下：</p>
+          <ol>
+            <li>首先下载 <a href=".exe/Fiddler/Setup_v5.0.20204.45441.exe" target="_blank">Fiddler setup</a>。</li>
+            <li>注意 <code>可能下载较慢</code>。</li>
+          </ol>
+          <p>需要自己创建一个快捷方式</p>
+
+          <h2 id="use">2. 配置与使用</h2>
+          <p>运行后要手动设置HTTPS,步骤如下：</p>
+          <ul>
+            <li>访问<a href="https://docs.telerik.com/fiddler/configure-fiddler/tasks/decrypthttps" target="_blank">Fiddler开启HTTPS教程文档</a>。</li>
+            <li>根据提示完成配置,这里我归纳一下方法</li>
+            <li>点击Tools</li>
+            <li>点击Options并点点击HTTPS</li>
+            <li>勾选第一和第二个选项,按照操作提示完成配置</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-light text-center py-4">
+    <p>© 2024 技术博客 | 关注我的 <a href="https://github.com/EQ767/" class="text-light">GitHub</a></p>
+  </footer>
+
+  <script>
+    // 获取切换按钮和图片图标
+    const toggleButton = document.getElementById('mode-toggle');
+    const modeIcon = document.getElementById('mode-icon');
+
+    // 检查用户的模式偏好
+    const currentMode = localStorage.getItem('mode') || 'light';
+    if (currentMode === 'dark') {
+      document.body.classList.add('dark-mode');
+      modeIcon.src = 'pic/moon.svg'; // 切换为月亮图标
+    }
+
+    // 切换模式函数
+    function toggleMode() {
+      const isDarkMode = document.body.classList.toggle('dark-mode');
+
+      // 根据模式更改图标和存储用户偏好
+      if (isDarkMode) {
+        modeIcon.src = 'pic/moon.svg'; // 切换为月亮图标
+        localStorage.setItem('mode', 'dark');
+      } else {
+        modeIcon.src = 'pic/sun.svg'; // 切换为太阳图标
+        localStorage.setItem('mode', 'light');
+      }
+    }
+
+    // 绑定点击事件
+    toggleButton.addEventListener('click', toggleMode);
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
